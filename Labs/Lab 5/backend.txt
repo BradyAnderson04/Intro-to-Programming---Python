@@ -1,0 +1,23 @@
+# there are 4 ways to set up a backend that all conflict w/ each other
+
+# option 1
+backend: WXAgg
+
+# option 2
+export MPLBACKEND=module:
+python simple_plot.python
+
+MPLBACKEND="module://mybackend" python simple_plot.py
+
+# option 3
+import matplotlib
+matplotlib.use('PS')  # generate postscript output by default
+
+# setting up backend on jupyter notebook 
+
+pip install ipympl
+jupyter nbextension enable --py --sys-prefix ipympl
+ 
+# for windows users
+conda install ipympl -c conda-forge
+
